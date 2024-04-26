@@ -1,0 +1,18 @@
+<div id="msg-form">
+	<form hx-post="{% url 'submit_form' %}" hx-target="#msg-form">
+		{% csrf_token %}
+		<div class="mb-3">
+			<input name="message" class="form-control" type="text" placeholder="write something...">
+		</div>
+		<div class="mb-3">
+			<input class="btn btn-primary" type="submit" value="Submit">
+		</div>
+	</form>
+	<div>
+		
+		{% for message in messages %}
+			<div>{{ message }}</div>
+		{% endfor %}
+	
+	</div>
+</div>
